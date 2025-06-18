@@ -7,7 +7,7 @@ import AuthMiddleware from "./middlewares/AuthMiddleware";
 // import DeliveryDetails from "./pages/DeliveryDetails";
 // import TicketDetails from "./pages/TicketDetails";
 // import Login from "./pages/Login";
-import AuthLayout from "./layouts/AuthLayout";
+
 // import SidebarLayout from "./layouts/SidebarLayout";
 // import ResetPassword from "./pages/ResetPassword";
 // import UserList from "./pages/users/UserList";
