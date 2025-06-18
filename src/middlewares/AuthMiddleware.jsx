@@ -6,7 +6,7 @@ const AuthMiddleware = ({ children }) => {
 
   if (!accessToken || !userData) {
     // Redirect to login page if access token is not present
-    window.location.href = "/login";
+    window.location.href = "/signin";
     return null;
   }
 
