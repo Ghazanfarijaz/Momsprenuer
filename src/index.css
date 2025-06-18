@@ -1,0 +1,17 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+/* Hide the clear (×) button in Chrome, Safari, and Edge */
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+/* Optional: Hide the decoration in Firefox */
+input[type="search"]::-moz-search-clear {
+  display: none;
+}
