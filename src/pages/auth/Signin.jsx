@@ -23,6 +23,8 @@ const Signin = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
+
+    navigate("/onboarding-wizard");
   };
 
   const handleSignUpClick = () => {

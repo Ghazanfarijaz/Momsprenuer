@@ -33,6 +33,7 @@ const SignUpForm = () => {
       return;
     }
     console.log("Form submitted:", formData);
+    navigate("/onboarding-wizard");
   };
 
   const handleLoginClick = () => {
