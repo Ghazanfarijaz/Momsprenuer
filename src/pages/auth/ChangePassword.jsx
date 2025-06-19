@@ -24,107 +24,109 @@ const ChangePasswordForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center px-2 py-3 md:px-20 md:py-5">
-      {/* Container with responsive sizing */}
-      <div
-        className="w-full bg-orange-50 sm:px-3 md:px-20 lg:px-[160px] xl:px-[370px] rounded-3xl shadow-lg transition-all duration-300"
-        style={{ backgroundColor: "#F5F1E8" }}
-      >
-        {/* Content Container */}
-        <div className="w-full max-w-[400px] mx-auto p-4">
-          {/* Logo Section */}
-          <div className="flex items-center justify-center mb-4 sm:mb-6">
-            <div
-              className="bg-purple-900 p-2 rounded-lg mr-2"
-              style={{ backgroundColor: "#5D1A1F" }}
+    // <div className="min-h-screen bg-white flex items-center justify-center px-2 py-3 md:px-20 md:py-5">
+    //   {/* Container with responsive sizing */}
+    //   <div
+    //     className="w-full bg-orange-50 sm:px-3 md:px-20 lg:px-[160px] xl:px-[370px] rounded-3xl shadow-lg transition-all duration-300"
+    //     style={{ backgroundColor: "#F5F1E8" }}
+    //   >
+    <>
+      {/* Content Container */}
+      <div className="w-full max-w-[400px] mx-auto p-4">
+        {/* Logo Section */}
+        <div className="flex items-center justify-center mb-4 sm:mb-6">
+          <div
+            className="bg-purple-900 p-2 rounded-lg mr-2"
+            style={{ backgroundColor: "#5D1A1F" }}
+          >
+            <svg
+              className="w-5 h-5 text-white"
+              fill="currentColor"
+              viewBox="0 0 24 24"
             >
-              <svg
-                className="w-5 h-5 text-white"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
-            </div>
-            <div
-              className="text-purple-900 font-bold text-xs"
-              style={{ color: "#5D1A1F" }}
-            >
-              <div>MOMPRENEURS</div>
-              <div>MATCH</div>
-            </div>
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            </svg>
           </div>
-
-          {/* Header */}
-          <div className="text-center mb-6 sm:mb-8">
-            <h1
-              className="text-xl sm:text-2xl font-semibold mb-2"
-              style={{ color: "#5D1A1F" }}
-            >
-              Change password
-            </h1>
+          <div
+            className="text-purple-900 font-bold text-xs"
+            style={{ color: "#5D1A1F" }}
+          >
+            <div>MOMPRENEURS</div>
+            <div>MATCH</div>
           </div>
-
-          {/* Form Fields */}
-          <form onSubmit={handleFormSubmit} className="space-y-3 sm:space-y-4">
-            {/* Email (pre-filled, non-editable) */}
-            <div
-              className="w-full px-4 py-2 sm:py-3 rounded-full text-xs sm:text-sm"
-              style={{
-                backgroundColor: "#E0D0E0",
-                color: "#5D1A1F",
-              }}
-            >
-              {formData.email}
-            </div>
-
-            {/* New Password */}
-            <input
-              type="password"
-              placeholder="Enter password"
-              value={formData.newPassword}
-              onChange={handleInputChange("newPassword")}
-              className="w-full px-4 py-2 sm:py-3 bg-white border border-gray-300 rounded-full text-xs sm:text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-900 focus:border-transparent"
-              required
-            />
-
-            {/* Confirm Password */}
-            <input
-              type="password"
-              placeholder="Confirm password"
-              value={formData.confirmPassword}
-              onChange={handleInputChange("confirmPassword")}
-              className="w-full px-4 py-2 sm:py-3 bg-white border border-gray-300 rounded-full text-xs sm:text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-900 focus:border-transparent"
-              required
-            />
-
-            {/* Submit Button */}
-            <button
-              type="submit"
-              className="w-full rounded-full py-2 sm:py-3 px-4 sm:px-6 flex items-center justify-center gap-2 font-medium text-xs sm:text-sm transition-colors hover:opacity-90"
-              style={{
-                backgroundColor: "#C8A8C8",
-                color: "#5D1A1F",
-                border: "none",
-              }}
-            >
-              <span>Save Password</span>
-              <svg
-                className="w-3 h-3 sm:w-4 sm:h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
-          </form>
         </div>
+
+        {/* Header */}
+        <div className="text-center mb-6 sm:mb-8">
+          <h1
+            className="text-xl sm:text-2xl font-semibold mb-2"
+            style={{ color: "#5D1A1F" }}
+          >
+            Change password
+          </h1>
+        </div>
+
+        {/* Form Fields */}
+        <form onSubmit={handleFormSubmit} className="space-y-3 sm:space-y-4">
+          {/* Email (pre-filled, non-editable) */}
+          <div
+            className="w-full px-4 py-2 sm:py-3 rounded-full text-xs sm:text-sm"
+            style={{
+              backgroundColor: "#E0D0E0",
+              color: "#5D1A1F",
+            }}
+          >
+            {formData.email}
+          </div>
+
+          {/* New Password */}
+          <input
+            type="password"
+            placeholder="Enter password"
+            value={formData.newPassword}
+            onChange={handleInputChange("newPassword")}
+            className="w-full px-4 py-2 sm:py-3 bg-white border border-gray-300 rounded-full text-xs sm:text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-900 focus:border-transparent"
+            required
+          />
+
+          {/* Confirm Password */}
+          <input
+            type="password"
+            placeholder="Confirm password"
+            value={formData.confirmPassword}
+            onChange={handleInputChange("confirmPassword")}
+            className="w-full px-4 py-2 sm:py-3 bg-white border border-gray-300 rounded-full text-xs sm:text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-900 focus:border-transparent"
+            required
+          />
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="w-full rounded-full py-2 sm:py-3 px-4 sm:px-6 flex items-center justify-center gap-2 font-medium text-xs sm:text-sm transition-colors hover:opacity-90"
+            style={{
+              backgroundColor: "#C8A8C8",
+              color: "#5D1A1F",
+              border: "none",
+            }}
+          >
+            <span>Save Password</span>
+            <svg
+              className="w-3 h-3 sm:w-4 sm:h-4"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </button>
+        </form>
       </div>
-    </div>
+    </>
+    //   </div>
+    // </div>
   );
 };
 

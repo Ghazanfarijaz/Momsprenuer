@@ -81,6 +81,7 @@ import ForgotPasswordForm from "./pages/auth/ForgotPassword";
 import ChangePasswordForm from "./pages/auth/ChangePassword";
 import ErrorPage from "./components/ui/ErrorPage"; // Create this component
 import NotFoundPage from "./components/ui/NotFoundPage"; // Create this component
+import AuthLayout from "./layouts/AuthLayout";
 
 export const router = createBrowserRouter([
   {
@@ -104,22 +105,38 @@ export const router = createBrowserRouter([
   },
   {
     path: "/signup",
-    element: <SignUp />,
+    element: (
+      <AuthLayout>
+        <SignUp />
+      </AuthLayout>
+    ),
     errorElement: <ErrorPage />,
   },
   {
     path: "/signin",
-    element: <Signin />,
+    element: (
+      <AuthLayout>
+        <Signin />
+      </AuthLayout>
+    ),
     errorElement: <ErrorPage />,
   },
   {
     path: "/forgot-password",
-    element: <ForgotPasswordForm />,
+    element: (
+      <AuthLayout>
+        <ForgotPasswordForm />
+      </AuthLayout>
+    ),
     errorElement: <ErrorPage />,
   },
   {
     path: "/change-password",
-    element: <ChangePasswordForm />,
+    element: (
+      <AuthLayout>
+        <ChangePasswordForm />
+      </AuthLayout>
+    ),
     errorElement: <ErrorPage />,
   },
   {
