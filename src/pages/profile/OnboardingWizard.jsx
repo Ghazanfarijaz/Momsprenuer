@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router";
+import profile from "../../assets/profile-girl.png"; // Adjust the path as necessary
 
 const OnboardingWizard = () => {
   const navigate = useNavigate();
@@ -79,7 +80,7 @@ const OnboardingWizard = () => {
             <div className="relative mb-8 sm:mb-12">
               <div className="flex justify-center">
                 <img
-                  src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                  src={profile}
                   alt="Mompreneur working at home"
                   className="w-80 h-64 sm:w-96 sm:h-80 lg:w-[450px] lg:h-[300px] object-cover rounded-2xl shadow-lg"
                 />
