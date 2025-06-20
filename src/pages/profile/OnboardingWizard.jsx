@@ -5,7 +5,7 @@ const OnboardingWizard = () => {
   const navigate = useNavigate();
   const handleStartJourney = () => {
     console.log("Start Your Journey clicked");
-    navigate("/onboarding-wizard");
+    navigate("/buisness-stage");
   };
 
   return (

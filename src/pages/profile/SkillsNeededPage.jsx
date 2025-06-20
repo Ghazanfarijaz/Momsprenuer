@@ -1,43 +1,99 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
-const BusinessStage = () => {
-  const [selectedStage, setSelectedStage] = useState(null);
+const SkillsNeededPage = () => {
+  const [selectedSkills, setSelectedSkills] = useState([]);
   const navigate = useNavigate();
 
-  const handleStageSelect = (stage) => {
-    setSelectedStage(stage);
+  const handleSkillToggle = (skillId) => {
+    setSelectedSkills((prev) =>
+      prev.includes(skillId)
+        ? prev.filter((id) => id !== skillId)
+        : [...prev, skillId]
+    );
+  };
+
+  const handleBack = () => {
+    console.log("Back button clicked");
+    navigate("/skills-selection");
   };
 
   const handleNext = () => {
-    if (selectedStage) {
-      console.log("Selected stage:", selectedStage);
-      // Handle navigation to next step
-      navigate("/skills-selection");
-    }
+    console.log("Selected needed skills:", selectedSkills);
   };
 
-  const stages = [
+  const skills = [
     {
-      id: "idea",
-      title: "Just an Idea",
-      icon: "💡",
-      description:
-        "You're exploring concepts and brainstorming possibilities, but haven't started formal planning.",
+      id: "business-planning",
+      title: "Business Planning",
+      icon: "📢",
+      description: "Crafting comprehensive business strategies.",
     },
     {
-      id: "launching",
-      title: "Launching Soon",
-      icon: "🚀",
-      description:
-        "You're actively developing your product/service, creating a business plan, and preparing for market entry.",
+      id: "market-research",
+      title: "Market Research",
+      icon: "💰",
+      description: "Identifying market trends and customer needs.",
     },
     {
-      id: "growing",
-      title: "Growing Business",
+      id: "product-development",
+      title: "Product Development",
+      icon: "</> ",
+      description: "Bringing new offerings to life.",
+    },
+    {
+      id: "growth-hacking",
+      title: "Growth Hacking",
+      icon: "🎨",
+      description: "Rapidly scaling user acquisition and retention.",
+    },
+    {
+      id: "digital-marketing",
+      title: "Digital Marketing",
+      icon: "📊",
+      description: "Online promotion and campaign management.",
+    },
+    {
+      id: "content-creation",
+      title: "Content Creation",
+      icon: "👥",
+      description: "Developing engaging written and visual content.",
+    },
+    {
+      id: "social-media-mgmt",
+      title: "Social Media Mgmt.",
+      icon: "📚",
+      description: "Building community and brand presence online.",
+    },
+    {
+      id: "sales-optimization",
+      title: "Sales Optimization",
+      icon: "⚙️",
+      description: "Improving conversion and revenue generation.",
+    },
+    {
+      id: "brand-building",
+      title: "Brand Building",
       icon: "📈",
-      description:
-        "You have an established business, generating revenue, and are focused on scaling and expanding your reach.",
+      description: "Establishing a strong and recognizable brand identity.",
+    },
+    {
+      id: "financial-mgmt",
+      title: "Financial Mgmt.",
+      icon: "💻",
+      description: "Budgeting, forecasting, and financial health.",
+    },
+    {
+      id: "legal-compliance",
+      title: "Legal & Compliance",
+      icon: "💡",
+      description: "Navigating regulations and legal aspects.",
+    },
+    {
+      id: "project-management",
+      title: "Project Management",
+      icon: "☁️",
+      description: "Organizing and executing projects efficiently.",
     },
   ];
 
@@ -45,7 +101,7 @@ const BusinessStage = () => {
     <div className="min-h-screen bg-white flex flex-col px-2 py-3 md:px-20 md:py-5">
       {/* Orange Container with responsive sizing */}
       <div
-        className="flex-1 bg-orange-50  rounded-3xl shadow-lg transition-all duration-300"
+        className="flex-1 bg-orange-50 rounded-3xl shadow-lg transition-all duration-300"
         style={{ backgroundColor: "#F5F1E8" }}
       >
         {/* Content Container */}
@@ -80,7 +136,7 @@ const BusinessStage = () => {
                 className="text-sm font-medium"
                 style={{ color: "#5D1A1F" }}
               >
-                Step 1 of 5
+                Step 3 of 5
               </span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2 max-w-md mx-auto">
@@ -88,7 +144,7 @@ const BusinessStage = () => {
                 className="h-2 rounded-full"
                 style={{
                   backgroundColor: "#5D1A1F",
-                  width: "20%",
+                  width: "60%",
                 }}
               ></div>
             </div>
@@ -119,65 +175,72 @@ const BusinessStage = () => {
               className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6"
               style={{ color: "#5D1A1F" }}
             >
-              Tell Us About Your Business Stage
+              What Skills Do You Need?
             </h1>
             <p
               className="text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl mx-auto"
               style={{ color: "#5D1A1F" }}
             >
-              This helps us understand your current needs and match you with the
-              right mentors and collaborators.
+              Let us know what kind of support or expertise you&apos;re looking
+              for within the community.
             </p>
           </div>
 
-          {/* Business Stage Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12 max-w-4xl mx-auto">
-            {stages.map((stage) => (
+          {/* Skills Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
+            {skills.map((skill) => (
               <div
-                key={stage.id}
-                onClick={() => handleStageSelect(stage.id)}
-                className={`cursor-pointer border-2 rounded-2xl p-6 sm:p-8 text-center transition-all duration-300 hover:shadow-lg ${
-                  selectedStage === stage.id
+                key={skill.id}
+                onClick={() => handleSkillToggle(skill.id)}
+                className={`cursor-pointer border-2 rounded-2xl p-4 sm:p-6 text-center transition-all duration-300 hover:shadow-lg ${
+                  selectedSkills.includes(skill.id)
                     ? "border-purple-900 bg-white shadow-lg"
                     : "border-gray-300 bg-white hover:border-gray-400"
                 }`}
                 style={{
-                  borderColor:
-                    selectedStage === stage.id ? "#5D1A1F" : undefined,
+                  borderColor: selectedSkills.includes(skill.id)
+                    ? "#5D1A1F"
+                    : undefined,
                 }}
               >
                 {/* Icon */}
-                <div className="text-4xl sm:text-5xl mb-4">{stage.icon}</div>
+                <div className="text-2xl sm:text-3xl mb-3">{skill.icon}</div>
 
                 {/* Title */}
                 <h3
-                  className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4"
+                  className="text-sm sm:text-base font-semibold mb-2 sm:mb-3"
                   style={{ color: "#5D1A1F" }}
                 >
-                  {stage.title}
+                  {skill.title}
                 </h3>
 
                 {/* Description */}
                 <p
-                  className="text-xs sm:text-sm leading-relaxed"
+                  className="text-xs leading-relaxed"
                   style={{ color: "#5D1A1F" }}
                 >
-                  {stage.description}
+                  {skill.description}
                 </p>
               </div>
             ))}
           </div>
 
-          {/* Next Button */}
-          <div className="flex justify-center mb-8 sm:mb-12">
+          {/* Navigation Buttons */}
+          <div className="flex justify-center gap-4 mb-8 sm:mb-12">
+            <button
+              onClick={handleBack}
+              className="px-8 sm:px-12 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base transition-all duration-300 hover:opacity-90 border-2"
+              style={{
+                backgroundColor: "transparent",
+                color: "#5D1A1F",
+                borderColor: "#C8A8C8",
+              }}
+            >
+              Back
+            </button>
             <button
               onClick={handleNext}
-              disabled={!selectedStage}
-              className={`px-8 sm:px-12 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base transition-all duration-300 ${
-                selectedStage
-                  ? "hover:opacity-90 cursor-pointer"
-                  : "opacity-50 cursor-not-allowed"
-              }`}
+              className="px-8 sm:px-12 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base transition-all duration-300 hover:opacity-90"
               style={{
                 backgroundColor: "#C8A8C8",
                 color: "#5D1A1F",
@@ -200,4 +263,4 @@ const BusinessStage = () => {
   );
 };
 
-export default BusinessStage;
+export default SkillsNeededPage;

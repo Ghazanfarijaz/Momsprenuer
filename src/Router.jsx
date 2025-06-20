@@ -9,6 +9,9 @@ import ErrorPage from "./components/ui/ErrorPage"; // Create this component
 import NotFoundPage from "./components/ui/NotFoundPage"; // Create this component
 import AuthLayout from "./layouts/AuthLayout";
 import OnboardingWizard from "./pages/profile/OnboardingWizard";
+import BusinessStage from "./pages/profile/BuisnessStage";
+import SkillsSelectionPage from "./pages/profile/SkillsSelectionPage";
+import SkillsNeededPage from "./pages/profile/SkillsNeededPage";
 
 export const router = createBrowserRouter([
   {
@@ -75,6 +78,34 @@ export const router = createBrowserRouter([
     ),
     errorElement: <ErrorPage />,
   },
+  {
+    path: "/buisness-stage",
+    element: (
+      // <AuthLayout>
+      <BusinessStage />
+      // </AuthLayout>
+    ),
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/skills-selection",
+    element: (
+      // <AuthLayout>
+      <SkillsSelectionPage />
+      // </AuthLayout>
+    ),
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/skills-needed",
+    element: (
+      // <AuthLayout>
+      <SkillsNeededPage />
+      // </AuthLayout>
+    ),
+    errorElement: <ErrorPage />,
+  },
+
   {
     path: "*", // Catch-all route for 404
     element: <NotFoundPage />,
